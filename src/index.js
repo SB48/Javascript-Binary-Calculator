@@ -1,24 +1,23 @@
 import "./styles.css";
 
+//-------------------------------------------------------------------
+// TASK 1
 const sum = (a, b) => {
   return a + b;
-  //Your code
 };
 
 const subtract = (a, b) => {
   return a - b;
-  //Your code
 };
 
 const multiply = (a, b) => {
   return a * b;
-  //Your code
 };
 
 const divide = (a, b) => {
   return a / b;
-  //Your code
 };
+//-------------------------------------------------------------------
 
 //this function will implement your calculations
 const performCalculation = {
@@ -63,6 +62,8 @@ function inputDecimal(dot) {
   }
 }
 
+//-------------------------------------------------------------------
+// TASK 2
 function handleOperator(nextOperator) {
   const { firstOperand, displayValue, operator } = calculator;
   const inputValue = parseFloat(displayValue);
@@ -82,8 +83,14 @@ function handleOperator(nextOperator) {
 
     calculator.displayValue = String(result);
 
-    //Task 2 YOUR CODE HERE
-    calculator.infoValue = parseFloat(result).toString(2);
+    //here we use the feature of the calculator called
+    // "infoValue" is set as the binary result
+    if (result % 2 === 0) {
+      calculator.infoValue = "Even";
+    } else {
+      calculator.infoValue = "Odd";
+    }
+    //
 
     calculator.firstOperand = result;
   }
@@ -139,8 +146,10 @@ keys.addEventListener("click", (event) => {
     updateDisplay();
     return;
   }
-
+  //-------------------------------------------------------------------
+  //TASK 3
   calculator.infoValue = parseFloat(target.value).toString(2);
+  //
   inputDigit(target.value);
   updateDisplay();
 });
